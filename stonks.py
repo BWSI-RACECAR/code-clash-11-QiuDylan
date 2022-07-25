@@ -40,7 +40,7 @@ class Solution:
     def stonks(self, prices):
         # type prices: list
         # return type: int
-        min_price1 =0
+        min_price1 = 100000
         profit1 = []
         max_profit_1 = 0
         
@@ -76,9 +76,12 @@ class Solution:
             sum_profit = profit1[i] + profit2[i]
             if sum_profit > max_profit:
                 max_profit = sum_profit
-
-        return max_profit
-
+                return max_profit
+            else: 
+                return sum_profit
+        print (profit1)
+        print (profit2)
+        
 
 
 
