@@ -49,7 +49,7 @@ class Solution:
         if (test_list1 == prices):
             flag = 1    
 
-        if flag: 
+        if flag ==1: 
             for i in range(len(prices)):
                 if (prices[i] < vmin):
                     vmin = prices[i]
