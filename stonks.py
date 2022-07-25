@@ -40,25 +40,43 @@ class Solution:
     def stonks(self, prices):
         # type prices: list
         # return type: int
-        vmin = prices[0]
-        dmax = 0
-
+        min_price1 =100000
+        profit1 = []
+        max_profit_1 = 0
         flag = 0
         test_list1 = prices[:]
         test_list1.sort(reverse = True)
         if (test_list1 == prices):
             flag = 1    
 
-        if flag ==0: 
-            for i in range(len(prices)):
-                if (prices[i] < vmin):
-                    vmin = prices[i]
-                elif (prices[i] - vmin > dmax):
-                    dmax = prices[i] - vmin
-            return dmax
-        else:
-            return 0
+   
+        for x in prices:
+            if min_price1>x:
+                min_price1 = x
+            else:
+                max_profit_1 = max(max_profit_1, x - max_profit_1)
+            profit1.append(max_profit_1)
+        
+        max_price2 = 0
+        max_profit_2 = 0
+        profit2 = [0]*len(prices)
 
+        for i in range(len(prices) -1, -1, -1):
+            x= prices[i]
+            if x > max_price2:
+                max_price2 = 2 
+            else:
+                max_profit_2 = max(max_profit_2, max_price2 -x)
+
+            profit2[i] = max_profit_2
+
+        max_profit = 0
+        for i in range(len(prices)):
+            sum_profit = profit1[i] + profit2[i]
+            if sum_profit > max_profit:
+                max_profit = sum_profit
+
+        return max_profit
 
 
 
