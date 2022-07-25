@@ -40,10 +40,11 @@ class Solution:
     def stonks(self, prices):
         # type prices: list
         # return type: int
-        min_price1 =100000
+        min_price1 =0
         profit1 = []
         max_profit_1 = 0
-        flag = 0
+        
+        flag = 0    
         test_list1 = prices[:]
         test_list1.sort(reverse = True)
         if (test_list1 == prices):
@@ -51,7 +52,7 @@ class Solution:
 
    
         for x in prices:
-            if min_price1>x:
+            if min_price1 > x:
                 min_price1 = x
             else:
                 max_profit_1 = max(max_profit_1, x - max_profit_1)
